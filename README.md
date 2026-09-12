@@ -1,3 +1,5 @@
+# Génération de map 2D avec Matrice de probabilité
+
 ![](src/img/map.png)
 
 J'ai décidé d'explorer les possibilités de génération de contenu aléatoire en utilisant les matrices de probabilité que j'ai appris durant mes cours de mathématiques de jeu à l'université.
