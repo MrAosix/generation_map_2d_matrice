@@ -1,10 +1,10 @@
-![Alt text](img/.png)
+![](src/img/map.png)
 
 J'ai décidé d'explorer les possibilités de génération de contenu aléatoire en utilisant les matrices de probabilité que j'ai appris durant mes cours de mathématiques de jeu à l'université.
 
 Le projet consiste à générer des cartes de jeu en 2D de manière aléatoire, en utilisant une matrice de probabilité pour déterminer la disposition des éléments sur la carte. Chaque élément a une probabilité spécifique d'apparaître à un endroit donné par rapport aux autres éléments, ce qui permet de créer des cartes uniques à chaque génération qui suivent les règles de probabilité définies.
 
-
+![](src/img/generation_map.png)
 Le projet a été développé en utilisant JavaScript pour la génération de la carte et l'application des matrices de probabilité. L'interface utilisateur permet aux utilisateurs de visualiser la carte générée et d'interagir avec elle, en modifiant les paramètres de probabilité pour influencer le résultat final.
 
 La génération de la map commence par prendre le premier élément (1,1) de la carte et lui place une image aléatoire.
