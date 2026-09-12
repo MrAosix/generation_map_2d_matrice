@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matrice de Probabilité</title>
+    <meta name="description" content="Projet de matrice de probabilité dans la génération de map de jeu par Émeryk Bélisle." />
+    <link rel="stylesheet" href="src/css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Matrice de Probabilité</h1>
+      <h2>Projet de génération de map de jeu 2D avec matrice de probabilité</h2>
+    </header>
+    <main>
+      <section id="map-container">
+        <div id="map-canvas"></div>
+      </section>
+      <section id="info">
+        <h2>Changer les paramètres de la matrice de probabilité pour générer des cartes différentes.</h2>
+        <p>
+          1. Dans chaque ligne de la matrice, l'addition des probabilités doit égaler 1 <br />
+          2. Les valeurs dans chaque ligne doivent être comprises entre 0 et 1
+        </p>
+        <table>
+          <tr>
+            <th></th>
+            <th>Forêt</th>
+            <th>Gazon</th>
+            <th>Eau</th>
+            <th>Sable</th>
+            <th>Montagne</th>
+            <th>Maison</th>
+          </tr>
+          <tr>
+            <td>Forêt</td>
+            <td><input id="forest-to-forest" type="number" min="0" max="1" step="0.01" value="0.70" /></td>
+            <td><input id="forest-to-grass" type="number" min="0" max="1" step="0.01" value="0.15" /></td>
+            <td><input id="forest-to-water" type="number" min="0" max="1" step="0.01" value="0" /></td>
+            <td><input id="forest-to-sand" type="number" min="0" max="1" step="0.01" value="0.05" /></td>
+            <td><input id="forest-to-mountain" type="number" min="0" max="1" step="0.01" value="0.05" /></td>
+            <td><input id="forest-to-house" type="number" min="0" max="1" step="0.01" value="0.05" /></td>
+          </tr>
+          <tr>
+            <td>Gazon</td>
+            <td><input id="grass-to-forest" type="number" min="0" max="1" step="0.01" value="0.15" /></td>
+            <td><input id="grass-to-grass" type="number" min="0" max="1" step="0.01" value="0.65" /></td>
+            <td><input id="grass-to-water" type="number" min="0" max="1" step="0.01" value="0" /></td>
+            <td><input id="grass-to-sand" type="number" min="0" max="1" step="0.01" value="0.05" /></td>
+            <td><input id="grass-to-mountain" type="number" min="0" max="1" step="0.01" value="0.05" /></td>
+            <td><input id="grass-to-house" type="number" min="0" max="1" step="0.01" value="0.10" /></td>
+          </tr>
+          <tr>
+            <td>Eau</td>
+            <td><input id="water-to-forest" type="number" min="0" max="1" step="0.01" value="0" /></td>
+            <td><input id="water-to-grass" type="number" min="0" max="1" step="0.01" value="0" /></td>
+            <td><input id="water-to-water" type="number" min="0" max="1" step="0.01" value="0.85" /></td>
+            <td><input id="water-to-sand" type="number" min="0" max="1" step="0.01" value="0.15" /></td>
+            <td><input id="water-to-mountain" type="number" min="0" max="1" step="0.01" value="0" /></td>
+            <td><input id="water-to-house" type="number" min="0" max="1" step="0.01" value="0" /></td>
+          </tr>
+          <tr>
+            <td>Sable</td>
+            <td><input id="sand-to-forest" type="number" min="0" max="1" step="0.01" value="0.05" /></td>
+            <td><input id="sand-to-grass" type="number" min="0" max="1" step="0.01" value="0.05" /></td>
+            <td><input id="sand-to-water" type="number" min="0" max="1" step="0.01" value="0.15" /></td>
+            <td><input id="sand-to-sand" type="number" min="0" max="1" step="0.01" value="0.70" /></td>
+            <td><input id="sand-to-mountain" type="number" min="0" max="1" step="0.01" value="0.05" /></td>
+            <td><input id="sand-to-house" type="number" min="0" max="1" step="0.01" value="0" /></td>
+          </tr>
+          <tr>
+            <td>Montagne</td>
+            <td><input id="mountain-to-forest" type="number" min="0" max="1" step="0.01" value="0.20" /></td>
+            <td><input id="mountain-to-grass" type="number" min="0" max="1" step="0.01" value="0.25" /></td>
+            <td><input id="mountain-to-water" type="number" min="0" max="1" step="0.01" value="0" /></td>
+            <td><input id="mountain-to-sand" type="number" min="0" max="1" step="0.01" value="0.05" /></td>
+            <td><input id="mountain-to-mountain" type="number" min="0" max="1" step="0.01" value="0.50" /></td>
+            <td><input id="mountain-to-house" type="number" min="0" max="1" step="0.01" value="0" /></td>
+          </tr>
+          <tr>
+            <td>Maison</td>
+            <td><input id="house-to-forest" type="number" min="0" max="1" step="0.01" value="0.10" /></td>
+            <td><input id="house-to-grass" type="number" min="0" max="1" step="0.01" value="0.20" /></td>
+            <td><input id="house-to-water" type="number" min="0" max="1" step="0.01" value="0" /></td>
+            <td><input id="house-to-sand" type="number" min="0" max="1" step="0.01" value="0" /></td>
+            <td><input id="house-to-mountain" type="number" min="0" max="1" step="0.01" value="0" /></td>
+            <td><input id="house-to-house" type="number" min="0" max="1" step="0.01" value="0.70" /></td>
+          </tr>
+        </table>
+        <button id="generate-map">Générer une nouvelle map</button>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2026 Émeryk Bélisle</p>
+    </footer>
+    <script src="src/js/script.js"></script>
+  </body>
+</html>
